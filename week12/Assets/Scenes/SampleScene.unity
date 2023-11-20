@@ -156,6 +156,7 @@ MonoBehaviour:
   cloudPrefab: {fileID: 7220411436323201493, guid: 41e36322ee7545f40bdbac47ca323664, type: 3}
   enemyOnePrefab: {fileID: 8441968384631537521, guid: 898dc93462ad338429cacef6c65357b4, type: 3}
   coinPrefab: {fileID: 8802680997959398056, guid: 5198f300a1a2aa844a2ba36a6afb3040, type: 3}
+  shieldPrefab: {fileID: 7402431290811908797, guid: aec3d1e7c1498054dadf52e4b23ca135, type: 3}
   livesDisplay: {fileID: 1825604970}
   coinsDisplay: {fileID: 2059547060}
   gameOverScreen: {fileID: 451459079}

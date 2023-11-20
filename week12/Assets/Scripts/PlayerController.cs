@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private float verticalScreenLimit = 4.1f;
     public int lives;
     public int score;
+    public bool shieldActive;
 
     private void Start()
     {
@@ -72,6 +73,21 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.GetChild(0).GetComponent<AudioSource>().Play();
             Destroy(collision.gameObject);
         }
+
+        if (collision.tag == "Shield")
+        {
+            Destroy(collision.gameObject);
+            StartCoroutine(Shield());
+        }
+    }
+
+    IEnumerator Shield()
+    {
+        shieldActive = true; gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+        yield return new WaitForSeconds(4);
+        gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(1); //Dumb time.
+        shieldActive = false;
     }
 
 }

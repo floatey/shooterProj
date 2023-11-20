@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject cloudPrefab;
     public GameObject enemyOnePrefab;
     public GameObject coinPrefab;
+    public GameObject shieldPrefab;
     public GameObject livesDisplay;
     public GameObject coinsDisplay;
     public GameObject gameOverScreen;
@@ -23,7 +24,8 @@ public class GameManager : MonoBehaviour
         CreateSky();
         player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
         InvokeRepeating("SpawnEnemyOne", 1f, 2f);
-        InvokeRepeating("SpawnCoins", 1f, 2f);
+        InvokeRepeating("SpawnCoins", 3f, 5f);
+        InvokeRepeating("SpawnShield", 15f, 20f);
     }
 
     // Update is called once per frame
@@ -54,6 +56,11 @@ public class GameManager : MonoBehaviour
     void SpawnCoins()
     {
         Instantiate(coinPrefab, new Vector3(Random.Range(-8, 8), Random.Range(-4, 0), 0), Quaternion.identity);
+    }
+
+    void SpawnShield()
+    {
+        Instantiate(shieldPrefab, new Vector3(Random.Range(-8, 8), Random.Range(-4, 0), 0), Quaternion.identity);
     }
 
     void CreateSky()

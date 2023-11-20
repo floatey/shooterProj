@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class EnemyHandler : MonoBehaviour
 {
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+
+        if (collision.tag == "Player")
         {
-            collision.GetComponent<PlayerController>().LoseLife();
-            Destroy(gameObject);
+           if (collision.GetComponent<PlayerController>().shieldActive != true)
+            {
+                collision.GetComponent<PlayerController>().LoseLife();
+                Destroy(gameObject);
+            }
+           else
+            {
+                Destroy(gameObject);
+            }
         }
         else if(collision.tag == "Bullet")
         {
